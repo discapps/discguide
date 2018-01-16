@@ -141,12 +141,14 @@ function searchDiscs(discname) {
 	}
 }
 	var minimized = 'false';
-function minMenu(div) {
+function minMenu() {
 	var brands = document.getElementsByClassName("legendbrand");
 	if (minimized === false) {
+		brands.classList.remove('show');
 		brands.classList.add('hide');
 		minimized = 'true';
 	} else {
+		brands.classList.remove('hide');
 		brands.classList.add('show');
 		minimized = 'false';
 	}
@@ -253,7 +255,7 @@ body {
 <div id="blah"></div>
 <div style="position:absolute;display:none;" id="foundbox"><img src="arrow.png"></div>
 <div id="mydiv">
-  <div id="mydivheader"><img src="https://cdn1.iconfinder.com/data/icons/business-cursor/512/move_2-512.png" style="vertical-align: middle;" width="20" height="20"> Disc Brands <a href="#" onClick="minMenu(this);">-</a></div>
+  <div id="mydivheader"><img src="https://cdn1.iconfinder.com/data/icons/business-cursor/512/move_2-512.png" style="vertical-align: middle;" width="20" height="20"> Disc Brands <a href="#" onClick="minMenu();">-</a></div>
   <div style='background-color:teal;color:black;border:1px solid black;' onClick="brandClick(this);" brand="Axiom" class="legendbrand show">Axiom</div>
   <div style='background-color:orange;color:black;border:1px solid black;' onClick="brandClick(this);" brand="Daredevil" class="legendbrand show">Daredevil</div>
   <div style='background-color:grey;color:black;border:1px solid black;' onClick="brandClick(this);" brand="DGA" class="legendbrand show">DGA</div>
