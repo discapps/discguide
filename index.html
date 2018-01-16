@@ -140,6 +140,26 @@ function searchDiscs(discname) {
 		box.style.display = "none";
 	}
 }
+
+var minimized = false;
+function minMenu() {
+	var brandsList = document.getElementsByClassName("legendbrand");
+	for(var b=0; b<brandsList.length; b++) {
+		if (minimized === false) {
+			brandsList[b].classList.remove("show");
+			brandsList[b].classList.add("hide");
+		} else {
+			brandsList[b].classList.remove("hide");
+			brandsList[b].classList.add("show");
+		}
+	}
+	if (minimized === false) {
+		minimized = true;
+	} else {
+		minimized = false;
+	}
+
+}
 </script>
 <style>
 body {
@@ -172,6 +192,7 @@ body {
     z-index: 10;
     background-color: #2196F3;
     color: #fff;
+	width: 160px;
 	vertical-align:center;
 }
 .s14 {
@@ -239,7 +260,7 @@ body {
 <div id="blah"></div>
 <div style="position:absolute;display:none;" id="foundbox"><img src="arrow.png"></div>
 <div id="mydiv">
-  <div id="mydivheader"><img src="https://cdn1.iconfinder.com/data/icons/business-cursor/512/move_2-512.png" style="vertical-align: middle;" width="20" height="20"> Disc Brands <a href="#" onClick="minMenu();">-</a></div>
+  <div id="mydivheader"><img src="https://cdn1.iconfinder.com/data/icons/business-cursor/512/move_2-512.png" style="vertical-align: middle;" width="20" height="20"> Disc Brands <div style="right:0;top:0;position:absolute;"><a href="#" onClick="minMenu();"><img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/rounded-glossy-black-icons-symbols-shapes/020739-rounded-glossy-black-icon-symbols-shapes-minimize.png" width="20" height="20"></a></div></div>
   <div style='background-color:teal;color:black;border:1px solid black;' onClick="brandClick(this);" brand="Axiom" class="legendbrand show">Axiom</div>
   <div style='background-color:orange;color:black;border:1px solid black;' onClick="brandClick(this);" brand="Daredevil" class="legendbrand show">Daredevil</div>
   <div style='background-color:grey;color:black;border:1px solid black;' onClick="brandClick(this);" brand="DGA" class="legendbrand show">DGA</div>
@@ -255,7 +276,7 @@ body {
   <div style='background-color:lightgreen;color:black;border:1px solid black;' onClick="brandClick(this);" brand="Prodigy" class="legendbrand show">Prodigy</div>
   <div style='background-color:black;color:yellow;border:1px solid yellow;' onClick="brandClick(this);" brand="Vibram" class="legendbrand show">Vibram</div>
   <div style='background-color:#003300;color:white;border:1px solid black;' onClick="brandClick(this);" brand="Westside" class="legendbrand show">Westside</div>
-  <div id="search"><input type="text" id="searchbox" width="50" autocomplete="off" placeholder="Type Disc Name" onKeyUp="searchDiscs(this.value);"></div>
+  <div id="search" class="legendbrand show"><input type="text" id="searchbox" width="50" autocomplete="off" placeholder="Type Disc Name" onKeyUp="searchDiscs(this.value);"></div>
   
 </div>
 <script>
