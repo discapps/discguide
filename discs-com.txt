@@ -148,7 +148,7 @@ D6,Q13,Prodigy;
 
 Dart,K3,Innova;
 
-Daedalus,O13,Innova;
+Daedalus,N13,Innova;
 
 DD,F11,Discmania;
 
@@ -418,7 +418,7 @@ Ogopogo,C9,Daredevil;
 
 Onyx,N7,Vibram;
 
-Orbital,N12,MVP;
+Orbital,P12,MVP;
 
 Orc,E10,Innova;
 
