@@ -268,7 +268,7 @@ H4,J10,Prodigy;
 
 Halo,H13,Lat64;
 
-Harp,B3,Westside;
+Harp,B4,Westside;
 
 Hatchet,N9,Westside;
 
