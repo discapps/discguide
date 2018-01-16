@@ -188,7 +188,7 @@ Escape,I9,Dynamic;
 
 Energy,D13,MVP;
 
-Envy,H4,Axiom;
+Envy,H3,Axiom;
 
 Evidence,K5,Dynamic;
 
