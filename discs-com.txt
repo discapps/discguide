@@ -420,7 +420,7 @@ Onyx,N7,Vibram;
 
 Orbital,P12,MVP;
 
-Orc,E10,Innova;
+Orc,G10,Innova;
 
 Orion LF,D9,Millenium;
 
@@ -570,7 +570,7 @@ Squall,P5,DGA;
 
 Stalker,I7,Discraft;
 
-Starfire,G10,Innova;
+Starfire,E10,Innova;
 
 Stiletto,B13,Lat64;
 
