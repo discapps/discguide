@@ -118,6 +118,9 @@ What kind of shoes should mommy wear?
             const audio = document.getElementById("audio");
             audio.play();
         }
+	window.addEventListener("load", () => {
+            playAudio();
+        });
     </script>
     <button id="scanBtn">Scanner</button>
     <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
