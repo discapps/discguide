@@ -11,20 +11,20 @@
 
         function startScanner() {
             const videoElem = document.getElementById("qr-video");
-            const resultElem = document.getElementById("result");
 
-            // Ensure video element is visible
-            videoElem.style.display = "block";
+            videoElem.style.display = "block"; // Make sure video is visible
 
-            // Initialize the scanner
             scanner = new QrScanner(videoElem, result => {
-                resultElem.innerText = "QR Code: " + result;
                 scanner.stop(); // Stop scanning after detection
-            }, {
-                returnDetailedScanResult: true
+                
+                // Check if the result is a valid URL
+                if (isValidURL(result)) {
+                    window.location.href = result; // Redirect to the URL
+                } else {
+                    alert("Scanned text is not a valid URL: " + result);
+                }
             });
 
-            // Request camera permissions and start scanning
             QrScanner.hasCamera().then(hasCamera => {
                 if (hasCamera) {
                     scanner.start().catch(err => {
@@ -37,6 +37,15 @@
             });
         }
 
+        function isValidURL(string) {
+            try {
+                const url = new URL(string);
+                return url.protocol === "http:" || url.protocol === "https:";
+            } catch (_) {
+                return false;
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("scanBtn").addEventListener("click", startScanner);
         });
@@ -45,6 +54,5 @@
 <body>
     <button id="scanBtn">Start QR Scanner</button>
     <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
-    <p id="result"></p>
 </body>
 </html>
