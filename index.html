@@ -12,16 +12,20 @@
         function startScanner() {
             const videoElem = document.getElementById("qr-video");
 
-            videoElem.style.display = "block"; // Make sure video is visible
+            videoElem.style.display = "block"; // Ensure video is visible
 
             scanner = new QrScanner(videoElem, result => {
                 scanner.stop(); // Stop scanning after detection
                 
-                // Check if the result is a valid URL
-                if (isValidURL(result)) {
-                    window.location.href = result; // Redirect to the URL
+                // Check if the result looks like a website
+                if (looksLikeWebsite(result)) {
+                    // Ensure it has a protocol, otherwise add "https://"
+                    if (!result.startsWith("http://") && !result.startsWith("https://")) {
+                        result = "https://" + result;
+                    }
+                    window.location.href = result; // Redirect
                 } else {
-                    alert("Scanned text is not a valid URL: " + result);
+                    alert("Scanned text is not a valid website: " + result);
                 }
             });
 
@@ -37,13 +41,8 @@
             });
         }
 
-        function isValidURL(string) {
-            try {
-                const url = new URL(string);
-                return url.Includes(".com");
-            } catch (_) {
-                return false;
-            }
+        function looksLikeWebsite(text) {
+            return text.match(/\.(com|net|org|io|co|edu|gov|biz|info|dev|xyz|app|shop|site)/i);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
