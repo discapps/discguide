@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zac's Pokemon Hunt</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-color: black;
+	    color: white;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        video {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+		.play-btn {
+            font-size: 48px;
+            width: 100px;
+            height: 100px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script type="module">
+        import QrScanner from "https://unpkg.com/qr-scanner@1.4.2/qr-scanner.min.js";
+
+        let scanner;
+
+        function startScanner() {
+            const videoElem = document.getElementById("qr-video");
+
+            videoElem.style.display = "block"; // Ensure video is visible
+
+            scanner = new QrScanner(videoElem, result => {
+                scanner.stop(); // Stop scanning after detection
+                
+                // Check if the result looks like a website
+                if (looksLikeWebsite(result)) {
+                    // Ensure it has a protocol, otherwise add "https://"
+                    if (!result.startsWith("http://") && !result.startsWith("https://")) {
+                        result = "https://" + result;
+                    }
+                    window.open(result, '_blank');
+                } else {
+                    alert("Scanned text is not a valid website: " + result);
+                }
+            });
+
+            QrScanner.hasCamera().then(hasCamera => {
+                if (hasCamera) {
+                    scanner.start().catch(err => {
+                        console.error("Camera error:", err);
+                        alert("Camera access denied. Please allow camera permissions.");
+                    });
+                } else {
+                    alert("No camera found on this device.");
+                }
+            });
+        }
+
+        function looksLikeWebsite(text) {
+            return text.match(/\.(com|net|org|io|co|edu|gov|biz|info|dev|xyz|app|shop|site|de)/i);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("scanBtn").addEventListener("click", startScanner);
+        });
+    </script>
+</head>
+<body>
+    <button class="play-btn" onclick="playAudio()">▶</button><br><br>
+    <audio id="audio" src="10.mp3"></audio>
+	The next treasure is inside a place that gets hot!<br>
+Where we cook the food that we bought.<br>
+We love to bake all the goodies.<br>
+Like dinner, and cake, and cookies!
+	<br><br><br>
+    <script>
+        function playAudio() {
+            const audio = document.getElementById("audio");
+            audio.play();
+        }
+		window.addEventListener("load", () => {
+            playAudio();
+        });
+    </script>
+    <button id="scanBtn">Scanner</button>
+    <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
+</body>
+</html>
