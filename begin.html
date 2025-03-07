@@ -118,6 +118,25 @@
     <button id="scanBtn">Scanner</button>
     <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<div id="step1"></div>
+	<div id="step1">
+		<button class="play-btn" onclick="playAudio()">▶</button><br><br>
+    <audio id="audio" src="1.mp3"></audio>
+	No chocolate milk<br>
+do you need to pee?<br>
+Better try, just in case<br>
+Go do a tactical wee
+	<br><br><br>
+    <script>
+        function playAudio() {
+            const audio = document.getElementById("audio");
+            audio.play();
+        }
+	window.addEventListener("load", () => {
+            playAudio();
+        });
+    </script>
+    <button id="scanBtn">Scanner</button>
+    <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
+	</div>
 </body>
 </html>
