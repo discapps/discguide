@@ -40,7 +40,7 @@
         function isValidURL(string) {
             try {
                 const url = new URL(string);
-                return url.protocol === "http:" || url.protocol === "https:";
+                return url.Includes(".com");
             } catch (_) {
                 return false;
             }
