@@ -99,6 +99,7 @@
     </script>
 </head>
 <body>
+<center>
 <img src="chocolatemilk.jpg" height="600" width="450"><br><br>
     <button class="play-btn" onclick="playAudio()">▶</button><br><br>
     <audio id="audio" src="begin.mp3"></audio>
@@ -115,24 +116,39 @@
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div id="step1">
 		<button class="play-btn" onclick="playAudio()">▶</button><br><br>
-    <audio id="audio" src="1.mp3"></audio>
+    <audio id="audio1" src="1.mp3"></audio>
 	No chocolate milk<br>
 do you need to pee?<br>
 Better try, just in case<br>
 Go do a tactical wee
 	<br><br><br>
     <script>
-        function playAudio() {
-            const audio = document.getElementById("audio");
+        function playAudio1() {
+            const audio = document.getElementById("audio1");
             audio.play();
         }
-	window.addEventListener("load", () => {
-            playAudio();
-        });
     </script>
     <button id="scanBtn">Scanner</button>
     <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
 	</div>
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div id="step1">
+		<button class="play-btn" onclick="playAudio2()">▶</button><br><br>
+    <audio id="audio2" src="2.mp3"></audio>
+	Its RAINING, its POURING!<br>
+Mommy wants to go exploring<br>
+Before she goes out there,<br>
+What kind of shoes should mommy wear?
+	<br><br><br>
+    <script>
+        function playAudio2() {
+            const audio = document.getElementById("audio2");
+            audio.play();
+        }
+    </script>
+    <button id="scanBtn">Scanner</button>
+    <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
+	</div>
+</center>
 </body>
 </html>
