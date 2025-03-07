@@ -132,7 +132,7 @@ Go do a tactical wee
     <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
 	</div>
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<div id="step1">
+	<div id="step2">
 		<button class="play-btn" onclick="playAudio2()">▶</button><br><br>
     <audio id="audio2" src="2.mp3"></audio>
 	Its RAINING, its POURING!<br>
@@ -143,6 +143,24 @@ What kind of shoes should mommy wear?
     <script>
         function playAudio2() {
             const audio = document.getElementById("audio2");
+            audio.play();
+        }
+    </script>
+    <button id="scanBtn">Scanner</button>
+    <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div id="step3">
+		<button class="play-btn" onclick="playAudio3()">▶</button><br><br>
+    <audio id="audio3" src="3.mp3"></audio>
+	Its RAINING, its POURING!<br>
+And the itsy bitsy spider goes down the water spout<br>
+But there's another spider we read about<br>
+But Daddy won't read cause it will make him scream!
+	<br><br><br>
+    <script>
+        function playAudio3() {
+            const audio = document.getElementById("audio3");
             audio.play();
         }
     </script>
