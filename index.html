@@ -40,54 +40,14 @@
             border-radius: 10px;
         }
     </style>
-    <script type="module">
-        import QrScanner from "https://unpkg.com/qr-scanner@1.4.2/qr-scanner.min.js";
-
-        let scanner;
-
-        function startScanner() {
-            const videoElem = document.getElementById("qr-video");
-
-            videoElem.style.display = "block"; // Ensure video is visible
-
-            scanner = new QrScanner(videoElem, result => {
-                scanner.stop(); // Stop scanning after detection
-                
-                // Check if the result looks like a website
-                if (looksLikeWebsite(result)) {
-                    // Ensure it has a protocol, otherwise add "https://"
-                    if (!result.startsWith("http://") && !result.startsWith("https://")) {
-                        result = "https://" + result;
-                    }
-                    window.open(result, '_blank');
-                } else {
-                    alert("Scanned text is not a valid website: " + result);
-                }
-            });
-
-            QrScanner.hasCamera().then(hasCamera => {
-                if (hasCamera) {
-                    scanner.start().catch(err => {
-                        console.error("Camera error:", err);
-                        alert("Camera access denied. Please allow camera permissions.");
-                    });
-                } else {
-                    alert("No camera found on this device.");
-                }
-            });
-        }
-
-        function looksLikeWebsite(text) {
-            return text.match(/\.(com|net|org|io|co|edu|gov|biz|info|dev|xyz|app|shop|site|de)/i);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("scanBtn").addEventListener("click", startScanner);
-        });
-    </script>
+    
 </head>
 <body>
-    <button id="scanBtn">Scanner</button>
-    <video id="qr-video" style="width: 100%; max-width: 400px; display: none; margin-top: 10px;"></video>
+    <button onclick="redirectToLink()">BEGIN</button>
+    <script>
+        function redirectToLink() {
+            window.location.href = "https://discapps.github.io/discguide/begin.html"
+        }
+    </script>
 </body>
 </html>
